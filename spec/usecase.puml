@@ -1,0 +1,28 @@
+@startuml
+left to right direction
+
+'アクター定義
+"Parent" as Parent
+
+'親ユーザーのユースケース'
+package 子どもマスタ {
+    Parent --> (子どもを参照する)
+    Parent --> (子どもを登録する)
+    Parent --> (子どもを変更する)
+    Parent --> (子どもを削除する)
+}
+
+package お手伝いマスタ {
+    Parent --> (お手伝いを参照する)
+    Parent --> (お手伝いを登録する)
+    Parent --> (お手伝いを変更する)
+    Parent --> (お手伝いを削除する)
+}
+
+package お小遣い帳 {
+    Parent --> (お小遣いを参照する)
+    Parent --> (お小遣いを登録する)
+    Parent --> (お小遣いを変更する)
+    Parent --> (お小遣いを削除する)
+}
+@enduml
