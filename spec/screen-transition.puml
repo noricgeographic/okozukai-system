@@ -1,0 +1,16 @@
+@startuml
+'画面定義
+state "お小遣い帳画面" as Okozukai
+state "子どもマスタ画面" as ChildrenMaster
+state "お手伝いマスタ画面" as OtetudaiMaster
+
+'画面遷移定義
+[*] --> Okozukai: アプリ起動
+Okozukai --> [*]: アプリを閉じる
+
+Okozukai --> ChildrenMaster: 子どもマスタを押下
+ChildrenMaster --> Okozukai: お小遣い帳を押下
+
+Okozukai --> OtetudaiMaster: お手伝いマスタを押下
+OtetudaiMaster --> Okozukai: お小遣い帳を押下
+@enduml
