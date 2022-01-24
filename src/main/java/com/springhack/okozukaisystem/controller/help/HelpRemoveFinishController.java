@@ -4,9 +4,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@RequestMapping("/help/registerFinish")
-@Controller("hoge6")
-public class RegisterFinishController {
+@RequestMapping("/help/removeFinish")
+@Controller
+public class HelpRemoveFinishController {
 
     @PostMapping
     public String doPost() {

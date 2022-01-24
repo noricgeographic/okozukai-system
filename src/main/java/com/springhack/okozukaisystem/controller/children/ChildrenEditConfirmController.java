@@ -4,12 +4,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@RequestMapping("/children/editFinish")
+@RequestMapping("/children/editConfirm")
 @Controller
-public class EditFinishController {
+public class ChildrenEditConfirmController {
 
     @PostMapping
     public String doPost() {
-        return "children/index";
+        return "children/edit_confirm";
     }
+
 }

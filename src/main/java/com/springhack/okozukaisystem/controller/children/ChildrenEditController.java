@@ -1,16 +1,16 @@
-package com.springhack.okozukaisystem.controller.help;
+package com.springhack.okozukaisystem.controller.children;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@RequestMapping("/help/edit")
-@Controller("hoge2")
-public class EditController {
+@RequestMapping("/children/edit")
+@Controller
+public class ChildrenEditController {
 
     @GetMapping
     public String doGet() {
-        return "help/edit";
+        return "children/edit";
     }
 
 }

@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @RequestMapping("/children/remove")
 @Controller
-public class RemoveController {
+public class ChildrenRemoveController {
 
     @GetMapping
     public String doGet() {

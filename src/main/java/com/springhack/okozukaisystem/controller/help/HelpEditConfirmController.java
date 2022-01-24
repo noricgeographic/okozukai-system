@@ -1,16 +1,16 @@
-package com.springhack.okozukaisystem.controller.children;
+package com.springhack.okozukaisystem.controller.help;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@RequestMapping("/children/registerConfirm")
+@RequestMapping("/help/editConfirm")
 @Controller
-public class RegisterConfirmController {
+public class HelpEditConfirmController {
 
     @PostMapping
     public String doPost() {
-        return "children/register_confirm";
+        return "help/edit_confirm";
     }
 
 }

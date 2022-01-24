@@ -1,15 +1,15 @@
-package com.springhack.okozukaisystem.controller.help;
+package com.springhack.okozukaisystem.controller.children;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@RequestMapping("/help/editFinish")
-@Controller("hoge3")
-public class EditFinishController {
+@RequestMapping("/children/removeFinish")
+@Controller
+public class ChildrenRemoveFinishController {
 
     @PostMapping
     public String doPost() {
-        return "help/index";
+        return "children/index";
     }
 }
