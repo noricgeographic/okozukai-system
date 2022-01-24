@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>お手伝いマスタ｜子どものお小遣い帳アプリ</title>
+</head>
+<body>
+    <header></header>
+    <main>
+        <h1>編集するお手伝いを確認</h1>
+        <form method="POST" action="/help/editFinish">
+            <table border="1">
+                <tr>
+                    <th>お手伝い名</th>
+                    <td>食器洗い</td>
+                </tr>
+                <tr>
+                    <th>単価</th>
+                    <td>100</td>
+                </tr>
+            </table>
+            <button onclick="location.href='/help/edit?id=123';return false;">キャンセル</button>
+            <input type="submit" value="編集を確定する" />
+        </form>
+    </main>
+    <footer>
+        <a href="/">トップページ</a>
+    </footer>
+</body>
+</html>

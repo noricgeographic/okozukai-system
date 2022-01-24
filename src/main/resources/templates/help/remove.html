@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>お手伝いマスタ｜子どものお小遣い帳アプリ</title>
+</head>
+<body>
+    <header></header>
+    <main>
+        <h1>お手伝いを削除</h1>
+        <div>このお手伝いを削除します。よろしいですか？</div>
+        <form method="POST" action="/help/removeFinish">
+            <table border="1">
+                <tr>
+                    <th>お手伝い名</th>
+                    <td>食器洗い</td>
+                </tr>
+                <tr>
+                    <th>単価</th>
+                    <td>100</td>
+                </tr>
+            </table>
+            <button onclick="location.href='/help';return false;">キャンセル</button>
+            <input type="submit" value="削除を確定する" />
+        </form>
+    </main>
+    <footer>
+        <a href="/">トップページ</a>
+    </footer>
+</body>
+</html>

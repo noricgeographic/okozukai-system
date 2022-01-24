@@ -11,17 +11,21 @@
         <table border="1">
             <tr>
                 <th>お手伝い名</th>
-                <th>いくらあげる</th>
+                <th>単価</th>
+                <th>操作</th>
             </tr>
             <tr>
                 <td>食器洗い</td>
                 <td>100</td>
+                <th><button onclick="location.href='/help/edit?id=123'">編集</button><button onclick="location.href='/help/remove?id=123'">削除</button></th>
             </tr>
             <tr>
                 <td>ゴミ捨て</td>
                 <td>50</td>
+                <th><button onclick="location.href='/help/edit?id=123'">編集</button><button onclick="location.href='/help/remove?id=123'">削除</button></th>
             </tr>
         </table>
+        <a href="/help/register">お手伝いを登録</a>
     </main>
     <footer>
         <a href="/">トップページ</a>
