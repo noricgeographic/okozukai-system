@@ -1,0 +1,8 @@
+## 下記を追加
+spring:
+    devtools:
+        livereload:
+            enabled: true
+        restart:
+            enabled: true
+
