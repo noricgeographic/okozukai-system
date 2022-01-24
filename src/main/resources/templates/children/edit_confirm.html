@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>子どもマスタ｜子どものお小遣い帳アプリ</title>
+</head>
+<body>
+    <header></header>
+    <main>
+        <h1>編集する子どもを確認</h1>
+        <form method="POST" action="/children/editFinish">
+            <table border="1">
+                <tr>
+                    <th>名前</th>
+                    <td>たろう</td>
+                </tr>
+                <tr>
+                    <th>生年月日</th>
+                    <td>2022/9/22</td>
+                </tr>
+            </table>
+            <button onclick="location.href='/children/edit?id=123';return false;">キャンセル</button>
+            <input type="submit" value="編集を確定する" />
+        </form>
+    </main>
+    <footer>
+        <a href="/">トップページ</a>
+    </footer>
+</body>
+</html>
