@@ -2,6 +2,7 @@ plugins {
 	id 'org.springframework.boot' version '2.6.3'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
+	id "org.flywaydb.flyway" version '8.2.0'
 }
 
 group = 'com.springhack'
@@ -16,6 +17,15 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation 'mysql:mysql-connector-java:8.0.27'
 
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 }
+
+flyway {
+	url = 'jdbc:mysql://localhost:3306/okozukai'
+	user = 'okozukaiadmin'
+	password = 'lknuve7gAre'
+	schemas = ['okozukai']
+}
+
