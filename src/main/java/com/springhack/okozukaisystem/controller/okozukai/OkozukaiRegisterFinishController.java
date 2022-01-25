@@ -4,8 +4,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@RequestMapping("/okozukai/registerFinish")
 @Controller
+@RequestMapping("/okozukai/registerFinish")
 public class OkozukaiRegisterFinishController {
 
     @PostMapping

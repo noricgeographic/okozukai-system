@@ -4,8 +4,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@RequestMapping("/help/edit")
 @Controller
+@RequestMapping("/help/edit")
 public class HelpEditController {
     @GetMapping
     public String doGet() {

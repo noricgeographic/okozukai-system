@@ -4,8 +4,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@RequestMapping("/children/editFinish")
 @Controller
+@RequestMapping("/children/editFinish")
 public class ChildrenEditFinishController {
 
     @PostMapping

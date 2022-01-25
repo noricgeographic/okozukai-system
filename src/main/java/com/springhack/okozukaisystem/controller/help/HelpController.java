@@ -4,9 +4,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
+@RequestMapping("/help")
 public class HelpController {
 
-    @RequestMapping("/help")
+    @RequestMapping
     public String index() {
         return "help/index";
     }
