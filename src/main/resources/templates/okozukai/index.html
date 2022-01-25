@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>お小遣いを登録｜子どものお小遣い帳アプリ</title>
+</head>
+<body>
+    <header></header>
+    <main>
+        <h1>お小遣いを登録</h1>
+        <form method="POST" action="/okozukai/registerConfirm">
+            <table border="1">
+                <tr>
+                    <th>日付</th>
+                    <th>誰が</th>
+                    <th>何をした</th>
+                </tr>
+                <tr>
+                    <td><input type="date" value="2022-02-13"></td>
+                    <td>
+                        <select>
+                            <option>ひろと</option>
+                            <option>はるき</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select>
+                            <option>食器洗い</option>
+                            <option>ゴミ捨て</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+        <button onclick="location.href='/';return false;">キャンセル</button>
+        <input type="submit" value="確認する"/>
+        </form>
+    </main>
+    <footer>
+        <a href="/">トップページ</a>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,15 @@
+package com.springhack.okozukaisystem.controller.okozukai;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@RequestMapping("/okozukai/registerFinish")
+@Controller
+public class OkozukaiRegisterFinishController {
+
+    @PostMapping
+    public String doPost() {
+        return "index";
+    }
+}
