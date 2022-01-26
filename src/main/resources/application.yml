@@ -1,5 +1,11 @@
-## 下記を追加
 spring:
+    ## DB接続情報
+    dataSource:
+        url: jdbc:mysql://localhost:3306/okozukai
+        username: okozukaiadmin
+        password: lknuve7gAre
+        driver-class-name: com.mysql.cj.jdbc.Driver
+    ## ホットデプロイ設定
     devtools:
         livereload:
             enabled: true
