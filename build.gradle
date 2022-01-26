@@ -20,7 +20,16 @@ dependencies {
 	implementation 'mysql:mysql-connector-java:8.0.27'
 	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.1'
 
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
 }
 
 flyway {
