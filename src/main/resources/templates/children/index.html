@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="ja">
 <head>
     <meta charset="UTF-8">
     <title>子どもマスタ｜子どものお小遣い帳アプリ</title>
@@ -15,16 +15,10 @@
                 <th>年齢</th>
                 <th>操作</th>
             </tr>
-            <tr>
-                <td>ひろと</td>
-                <td>2012/3/1</td>
-                <td>9</td>
-                <th><button onclick="location.href='/children/edit?id=123'">編集</button><button onclick="location.href='/children/remove?id=123'">削除</button></th>
-            </tr>
-            <tr>
-                <td>はるき</td>
-                <td>2015/9/21</td>
-                <td>6</td>
+            <tr th:each="child: ${children}">
+                <td th:text="${child.name}"></td>
+                <td th:text="${child.birthday}"></td>
+                <td>TODO</td>
                 <th><button onclick="location.href='/children/edit?id=123'">編集</button><button onclick="location.href='/children/remove?id=123'">削除</button></th>
             </tr>
         </table>
