@@ -5,8 +5,6 @@ import com.springhack.okozukaisystem.integration.mapper.ChildrenMapper;
 import com.springhack.okozukaisystem.domain.Child;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -26,5 +24,24 @@ public class ChildrenService {
                 .map(child -> new Child(child.getName(), child.getBirthday()))
                 .collect(Collectors.toList());
         return children;
+    }
+
+    /**
+     * 登録可能かチェックする
+     * @param name
+     * @return
+     */
+    public boolean canRegister(String name) {
+        int countSameName = childrenMapper.findByName(name);
+        if (countSameName > 0) {
+            return false;
+        }
+
+        return true;
+    }
+
+    public void register(Child newChild) {
+        var childrenEntity = new ChildrenEntity(null, newChild.getName(), newChild.getBirthday());
+        childrenMapper.insert(childrenEntity);
     }
 }

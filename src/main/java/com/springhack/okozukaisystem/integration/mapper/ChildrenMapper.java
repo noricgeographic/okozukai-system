@@ -7,5 +7,9 @@ import java.util.List;
 
 @Mapper
 public interface ChildrenMapper {
-    public List<ChildrenEntity> selectAll();
+    List<ChildrenEntity> selectAll();
+
+    int findByName(String name);
+
+    void insert(ChildrenEntity newChild);
 }

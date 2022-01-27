@@ -9,8 +9,9 @@ import java.time.LocalDate;
 @Getter
 public class Child {
 
+    /** 名前 */
     private String name;
 
+    /** 誕生日 */
     private LocalDate birthday;
-
 }
