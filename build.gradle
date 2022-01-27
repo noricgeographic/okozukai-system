@@ -33,6 +33,14 @@ configurations {
 	compileOnly {
 		extendsFrom annotationProcessor
 	}
+test {
+    // IntelliJ IDEAでJUnitを実行するための設定
+    useJUnitPlatform()
+
+    // テスト実行結果をログ出力するための設定
+    testLogging {
+        events "passed", "skipped", "failed", "standardOut", "standardError"
+    }
 }
 
 flyway {
