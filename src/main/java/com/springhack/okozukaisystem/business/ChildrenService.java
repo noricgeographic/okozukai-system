@@ -1,8 +1,8 @@
 package com.springhack.okozukaisystem.business;
 
+import com.springhack.okozukaisystem.domain.Child;
 import com.springhack.okozukaisystem.integration.enitity.ChildrenEntity;
 import com.springhack.okozukaisystem.integration.mapper.ChildrenMapper;
-import com.springhack.okozukaisystem.domain.Child;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 
 @Service
 public class ChildrenService {
-    
+
     private final ChildrenMapper childrenMapper;
 
     public ChildrenService(ChildrenMapper childrenMapper) {
@@ -30,6 +30,7 @@ public class ChildrenService {
 
     /**
      * 登録可能かチェックする
+     *
      * @param name
      * @return
      */
@@ -70,7 +71,7 @@ public class ChildrenService {
 
         List<ChildrenEntity> sameNameChildren = childrenMapper.findByName(newChild.getName());
 
-        if (!sameNameChildren.isEmpty() && !sameNameChildren.get(0).getChildId().equals(newChild.getChildId())){
+        if (!sameNameChildren.isEmpty() && !sameNameChildren.get(0).getChildId().equals(newChild.getChildId())) {
             return false;
         }
 
