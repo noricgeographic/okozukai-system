@@ -22,7 +22,7 @@
                 <td>TODO</td>
                 <th>
                     <button th:attr="onclick='location.href=\'/children/edit?id=' + ${child.childId} + '\''">編集</button>
-                    <button onclick="location.href='/children/remove?id=123'">削除</button>
+                    <button th:attr="onclick='location.href=\'/children/remove?id=' + ${child.childId} + '\''">削除</button>
                 </th>
             </tr>
         </table>

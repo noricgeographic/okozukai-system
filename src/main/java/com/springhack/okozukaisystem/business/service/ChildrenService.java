@@ -75,4 +75,8 @@ public class ChildrenService {
 
         return true;
     }
+
+    public void remove(Long childId) {
+        childrenMapper.delete(childId);
+    }
 }

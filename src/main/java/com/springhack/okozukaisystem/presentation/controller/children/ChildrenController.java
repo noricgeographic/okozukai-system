@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 import java.util.Objects;
@@ -79,13 +80,31 @@ public class ChildrenController {
     }
 
     @GetMapping("/children/remove")
-    public String doGet() {
+    public String remove(Long id, Model model) {
+
+        Child child = childrenService.get(id);
+        if (Objects.isNull(child)) {
+            model.addAttribute("message", "選択した子どもが存在しません。");
+            return "children/index";
+        }
+
+        model.addAttribute("child", child);
         return "children/remove";
     }
 
     @PostMapping("/children/removeFinish")
-    public String removeFinish() {
-        return "children/index";
+    public String removeFinish(Long childId, Model model, RedirectAttributes redirectAttributes) {
+
+        Child child = childrenService.get(childId);
+        if (Objects.isNull(child)) {
+            model.addAttribute("message", "選択した子どもが存在しません。");
+            return "children/index";
+        }
+
+        childrenService.remove(childId);
+
+        redirectAttributes.addFlashAttribute("message", "子ども削除しました。");
+        return "redirect:/children";
     }
 
     @GetMapping("/children/edit")

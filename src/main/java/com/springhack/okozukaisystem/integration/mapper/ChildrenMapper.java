@@ -16,4 +16,6 @@ public interface ChildrenMapper {
     void insert(ChildrenEntity newChild);
 
     void update(ChildrenEntity newChild);
+
+    void delete(Long childId);
 }

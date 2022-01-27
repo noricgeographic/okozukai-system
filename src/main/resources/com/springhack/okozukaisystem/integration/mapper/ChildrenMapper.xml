@@ -19,7 +19,11 @@
         INSERT INTO children (name, birthday) VALUES (#{name}, #{birthday})
     </insert>
 
-    <insert id="update">
+    <update id="update">
         UPDATE children SET name = #{name}, birthday = #{birthday} WHERE child_id = #{childId}
-    </insert>
+    </update>
+
+    <delete id="delete">
+        DELETE FROM children WHERE child_id = #{childId}
+    </delete>
 </mapper>
