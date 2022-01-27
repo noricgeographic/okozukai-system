@@ -7,11 +7,19 @@
         SELECT c.child_id, c.name, c.birthday FROM children c
     </select>
 
-    <select id="findByName" resultType="int">
-        SELECT count(*) FROM children c WHERE c.name = #{name}
+    <select id="findById" resultType="com.springhack.okozukaisystem.integration.enitity.ChildrenEntity">
+        SELECT c.child_id, c.name, c.birthday FROM children c WHERE c.child_id = #{childId}
+    </select>
+
+    <select id="findByName" resultType="com.springhack.okozukaisystem.integration.enitity.ChildrenEntity">
+        SELECT c.child_id, c.name, c.birthday FROM children c WHERE c.name = #{name}
     </select>
 
     <insert id="insert">
-        Insert INTO children (name, birthday) VALUES (#{name}, #{birthday})
+        INSERT INTO children (name, birthday) VALUES (#{name}, #{birthday})
+    </insert>
+
+    <insert id="update">
+        UPDATE children SET name = #{name}, birthday = #{birthday} WHERE child_id = #{childId}
     </insert>
 </mapper>

@@ -6,11 +6,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Objects;
 
 @Controller
 public class ChildrenController {
@@ -34,7 +33,7 @@ public class ChildrenController {
 
     @GetMapping("/children/register")
     public String register(Model model) {
-        model.addAttribute("childRegisterForm", new Child(null, null));
+        model.addAttribute("childRegisterForm", new Child(null,null, null));
         return "children/register";
     }
 
@@ -90,17 +89,50 @@ public class ChildrenController {
     }
 
     @GetMapping("/children/edit")
-    public String edit() {
+    public String edit(Long id, Model model) {
+
+        Child child = childrenService.get(id);
+        if (Objects.isNull(child)) {
+            model.addAttribute("message", "選択した子どもが存在しません。");
+            return "children/index";
+        }
+
+        ChildEditForm childEditForm = ChildrenControllerHelper.toEditForm(child);
+        model.addAttribute("childEditForm", childEditForm);
         return "children/edit";
     }
 
     @PostMapping("/children/editConfirm")
-    public String editConfirm() {
+    public String editConfirm(@Validated ChildEditForm childEditForm,BindingResult bindingResult, Model model) {
+
+        // 入力チェック
+        if (bindingResult.hasErrors()) {
+            return "children/edit";
+        }
+
+        // 編集可否チェック
+        var child = ChildrenControllerHelper.toChild(childEditForm);
+        boolean canRegister = childrenService.canEdit(child);
+        if (!canRegister) {
+            model.addAttribute("message", "既に同じ名前が登録されています。");
+            return "children/edit";
+        }
+
         return "children/edit_confirm";
     }
 
     @PostMapping("/children/editFinish")
-    public String doPost() {
-        return "children/index";
+    public String editFinish(@Validated ChildEditForm childEditForm,BindingResult bindingResult, Model model) {
+
+        // 入力チェック
+        if (bindingResult.hasErrors()) {
+            return "children/edit";
+        }
+
+        // 編集実行
+        var child = ChildrenControllerHelper.toChild(childEditForm);
+        childrenService.edit(child);
+
+        return "redirect:/children";
     }
 }

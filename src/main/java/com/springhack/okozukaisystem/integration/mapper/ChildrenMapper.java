@@ -9,7 +9,11 @@ import java.util.List;
 public interface ChildrenMapper {
     List<ChildrenEntity> selectAll();
 
-    int findByName(String name);
+    ChildrenEntity findById(Long childId);
+
+    List<ChildrenEntity> findByName(String name);
 
     void insert(ChildrenEntity newChild);
+
+    void update(ChildrenEntity newChild);
 }

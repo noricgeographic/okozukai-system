@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>子どもマスタ｜子どものお小遣い帳アプリ</title>
@@ -8,17 +8,25 @@
     <header></header>
     <main>
         <h1>子どもを編集</h1>
-        <form method="POST" action="/children/editConfirm">
+        <div th:text="${message}"></div>
+        <form method="POST" action="/children/editConfirm" th:object="${childEditForm}">
             <table border="1">
                 <tr>
                     <th>名前</th>
-                    <td><input type="text" name="name" value="ひろと"/></td>
+                    <td>
+                        <input type="text" th:field="*{name}"/>
+                        <span th:errors="*{name}"></span>
+                    </td>
                 </tr>
                 <tr>
                     <th>生年月日</th>
-                    <td><input type="date" name="birthday" value="2022-09-21"></td>
+                    <td>
+                        <input type="date" th:field="*{birthday}">
+                        <span th:errors="*{birthday}"></span>
+                    </td>
                 </tr>
             </table>
+            <input type="hidden" th:field="*{childId}">
             <button onclick="location.href='/children';return false;">キャンセル</button>
             <input type="submit" value="編集内容を確認" />
         </form>

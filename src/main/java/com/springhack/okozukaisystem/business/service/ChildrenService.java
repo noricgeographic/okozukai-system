@@ -6,6 +6,7 @@ import com.springhack.okozukaisystem.domain.Child;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Service
@@ -21,7 +22,7 @@ public class ChildrenService {
         List<ChildrenEntity> allChildren = childrenMapper.selectAll();
         var children = allChildren
                 .stream()
-                .map(child -> new Child(child.getName(), child.getBirthday()))
+                .map(child -> new Child(child.getChildId(), child.getName(), child.getBirthday()))
                 .collect(Collectors.toList());
         return children;
     }
@@ -32,8 +33,8 @@ public class ChildrenService {
      * @return
      */
     public boolean canRegister(String name) {
-        int countSameName = childrenMapper.findByName(name);
-        if (countSameName > 0) {
+        List<ChildrenEntity> sameNameChildren = childrenMapper.findByName(name);
+        if (!sameNameChildren.isEmpty()) {
             return false;
         }
 
@@ -43,5 +44,35 @@ public class ChildrenService {
     public void register(Child newChild) {
         var childrenEntity = new ChildrenEntity(null, newChild.getName(), newChild.getBirthday());
         childrenMapper.insert(childrenEntity);
+    }
+
+    public Child get(Long childId) {
+        ChildrenEntity childrenEntity = childrenMapper.findById(childId);
+        if (Objects.isNull(childrenEntity)) {
+            return null;
+        }
+        return new Child(
+                childrenEntity.getChildId(),
+                childrenEntity.getName(),
+                childrenEntity.getBirthday());
+    }
+
+    public void edit(Child newChild) {
+        var childrenEntity = new ChildrenEntity(newChild.getChildId(), newChild.getName(), newChild.getBirthday());
+        childrenMapper.update(childrenEntity);
+    }
+
+    /**
+     * 編集可能かチェックする
+     */
+    public boolean canEdit(Child newChild) {
+
+        List<ChildrenEntity> sameNameChildren = childrenMapper.findByName(newChild.getName());
+
+        if (!sameNameChildren.isEmpty() && !sameNameChildren.get(0).getChildId().equals(newChild.getChildId())){
+            return false;
+        }
+
+        return true;
     }
 }

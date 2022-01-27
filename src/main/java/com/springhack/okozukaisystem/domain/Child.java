@@ -9,6 +9,9 @@ import java.time.LocalDate;
 @Getter
 public class Child {
 
+    /** ID */
+    private Long childId;
+
     /** 名前 */
     private String name;
 
