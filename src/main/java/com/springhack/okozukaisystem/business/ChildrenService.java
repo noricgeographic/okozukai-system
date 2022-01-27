@@ -11,7 +11,8 @@ import java.util.stream.Collectors;
 
 @Service
 public class ChildrenService {
-    private ChildrenMapper childrenMapper;
+    
+    private final ChildrenMapper childrenMapper;
 
     public ChildrenService(ChildrenMapper childrenMapper) {
         this.childrenMapper = childrenMapper;

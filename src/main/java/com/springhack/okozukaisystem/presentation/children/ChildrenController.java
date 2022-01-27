@@ -1,7 +1,7 @@
 package com.springhack.okozukaisystem.presentation.children;
 
+import com.springhack.okozukaisystem.business.ChildrenService;
 import com.springhack.okozukaisystem.domain.Child;
-import com.springhack.okozukaisystem.business.service.ChildrenService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -15,7 +15,7 @@ import java.util.Objects;
 @Controller
 public class ChildrenController {
 
-    private ChildrenService childrenService;
+    private final ChildrenService childrenService;
 
     public ChildrenController(ChildrenService childrenService) {
         this.childrenService = childrenService;
