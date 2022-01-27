@@ -1,15 +1,16 @@
-package com.springhack.okozukaisystem.presentation.controller.okozukai;
+package com.springhack.okozukaisystem.presentation.help;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/okozukai/useFinish")
-public class OkozukaiUseFinishController {
+@RequestMapping("/help/editConfirm")
+public class HelpEditConfirmController {
 
     @PostMapping
     public String doPost() {
-        return "okozukai/index";
+        return "help/edit_confirm";
     }
+
 }

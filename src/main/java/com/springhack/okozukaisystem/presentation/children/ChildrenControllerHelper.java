@@ -1,4 +1,4 @@
-package com.springhack.okozukaisystem.presentation.controller.children;
+package com.springhack.okozukaisystem.presentation.children;
 
 import com.springhack.okozukaisystem.domain.Child;
 

@@ -1,4 +1,4 @@
-package com.springhack.okozukaisystem.presentation.controller.okozukai;
+package com.springhack.okozukaisystem.presentation.okozukai;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

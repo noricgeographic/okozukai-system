@@ -1,4 +1,4 @@
-package com.springhack.okozukaisystem.business.service;
+package com.springhack.okozukaisystem.business;
 
 import com.springhack.okozukaisystem.integration.enitity.ChildrenEntity;
 import com.springhack.okozukaisystem.integration.mapper.ChildrenMapper;

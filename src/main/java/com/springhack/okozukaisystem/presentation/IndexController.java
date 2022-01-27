@@ -1,15 +1,13 @@
-package com.springhack.okozukaisystem.presentation.controller.okozukai;
+package com.springhack.okozukaisystem.presentation;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/okozukai")
-public class OkozukaiController {
-
+@RequestMapping("/")
+public class IndexController {
     @RequestMapping
     public String index() {
-        return "okozukai/index";
+        return "index";
     }
-
 }
