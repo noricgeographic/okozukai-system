@@ -1,4 +1,4 @@
-package com.springhack.okozukaisystem.integration.enitity;
+package com.springhack.okozukaisystem.integration.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

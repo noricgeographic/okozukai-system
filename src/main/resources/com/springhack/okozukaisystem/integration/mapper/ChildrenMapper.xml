@@ -3,15 +3,15 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.springhack.okozukaisystem.integration.mapper.ChildrenMapper">
-    <select id="selectAll" resultType="com.springhack.okozukaisystem.integration.enitity.ChildrenEntity">
+    <select id="selectAll" resultType="com.springhack.okozukaisystem.integration.entity.ChildrenEntity">
         SELECT c.child_id, c.name, c.birthday FROM children c
     </select>
 
-    <select id="findById" resultType="com.springhack.okozukaisystem.integration.enitity.ChildrenEntity">
+    <select id="findById" resultType="com.springhack.okozukaisystem.integration.entity.ChildrenEntity">
         SELECT c.child_id, c.name, c.birthday FROM children c WHERE c.child_id = #{childId}
     </select>
 
-    <select id="findByName" resultType="com.springhack.okozukaisystem.integration.enitity.ChildrenEntity">
+    <select id="findByName" resultType="com.springhack.okozukaisystem.integration.entity.ChildrenEntity">
         SELECT c.child_id, c.name, c.birthday FROM children c WHERE c.name = #{name}
     </select>
 

@@ -1,13 +1,14 @@
 package com.springhack.okozukaisystem.business;
 
 import com.springhack.okozukaisystem.domain.Child;
-import com.springhack.okozukaisystem.integration.enitity.ChildrenEntity;
+import com.springhack.okozukaisystem.integration.entity.ChildrenEntity;
 import com.springhack.okozukaisystem.integration.mapper.ChildrenMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
+
 
 @Service
 public class ChildrenService {
