@@ -6,7 +6,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
@@ -28,13 +30,17 @@ public class ChildrenController {
         List<Child> children = childrenService.getAll();
 
         // 画面表示
+        Object message = model.getAttribute("message");
+        if (message != null) {
+            model.addAttribute("message", String.valueOf(message));
+        }
         model.addAttribute("children", children);
         return "children/index";
     }
 
     @GetMapping("/children/register")
     public String register(Model model) {
-        model.addAttribute("childRegisterForm", new Child(null,null, null));
+        model.addAttribute("childRegisterForm", new Child(null, null, null));
         return "children/register";
     }
 
@@ -58,7 +64,7 @@ public class ChildrenController {
     }
 
     @PostMapping("/children/registerFinish")
-    public String registerFinish(@Validated ChildRegisterForm childRegisterForm, BindingResult bindingResult, Model model) {
+    public String registerFinish(@Validated ChildRegisterForm childRegisterForm, BindingResult bindingResult, Model model, RedirectAttributes redirectAttributes) {
 
         // 入力チェック
         if (bindingResult.hasErrors()) {
@@ -76,18 +82,22 @@ public class ChildrenController {
         var child = ChildrenControllerHelper.toChild(childRegisterForm);
         childrenService.register(child);
 
+        // 画面遷移
+        redirectAttributes.addFlashAttribute("message", child.getName() + "を登録しました。");
         return "redirect:/children";
     }
 
     @GetMapping("/children/remove")
     public String remove(Long id, Model model) {
 
+        // 削除チェック
         Child child = childrenService.get(id);
         if (Objects.isNull(child)) {
             model.addAttribute("message", "選択した子どもが存在しません。");
             return "children/index";
         }
 
+        // 画面遷移
         model.addAttribute("child", child);
         return "children/remove";
     }
@@ -95,14 +105,17 @@ public class ChildrenController {
     @PostMapping("/children/removeFinish")
     public String removeFinish(Long childId, Model model, RedirectAttributes redirectAttributes) {
 
+        // 削除チェック
         Child child = childrenService.get(childId);
         if (Objects.isNull(child)) {
             model.addAttribute("message", "選択した子どもが存在しません。");
             return "children/index";
         }
 
+        // 削除実行
         childrenService.remove(childId);
 
+        // 画面遷移
         redirectAttributes.addFlashAttribute("message", "子ども削除しました。");
         return "redirect:/children";
     }
@@ -110,19 +123,21 @@ public class ChildrenController {
     @GetMapping("/children/edit")
     public String edit(Long id, Model model) {
 
+        // 編集可否チェック
         Child child = childrenService.get(id);
         if (Objects.isNull(child)) {
             model.addAttribute("message", "選択した子どもが存在しません。");
             return "children/index";
         }
 
+        // 画面遷移
         ChildEditForm childEditForm = ChildrenControllerHelper.toEditForm(child);
         model.addAttribute("childEditForm", childEditForm);
         return "children/edit";
     }
 
     @PostMapping("/children/editConfirm")
-    public String editConfirm(@Validated ChildEditForm childEditForm,BindingResult bindingResult, Model model) {
+    public String editConfirm(@Validated ChildEditForm childEditForm, BindingResult bindingResult, Model model) {
 
         // 入力チェック
         if (bindingResult.hasErrors()) {
@@ -137,11 +152,12 @@ public class ChildrenController {
             return "children/edit";
         }
 
+        // 画面遷移
         return "children/edit_confirm";
     }
 
     @PostMapping("/children/editFinish")
-    public String editFinish(@Validated ChildEditForm childEditForm,BindingResult bindingResult, Model model) {
+    public String editFinish(@Validated ChildEditForm childEditForm, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
 
         // 入力チェック
         if (bindingResult.hasErrors()) {
@@ -152,6 +168,8 @@ public class ChildrenController {
         var child = ChildrenControllerHelper.toChild(childEditForm);
         childrenService.edit(child);
 
+        // 画面遷移
+        redirectAttributes.addFlashAttribute("message", child.getName() + "を編集しました。");
         return "redirect:/children";
     }
 }

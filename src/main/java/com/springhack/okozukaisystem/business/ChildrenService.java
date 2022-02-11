@@ -19,6 +19,9 @@ public class ChildrenService {
         this.childrenMapper = childrenMapper;
     }
 
+    /**
+     * 全件取得する
+     */
     public List<Child> getAll() {
         // DBから取得
         List<ChildrenEntity> allChildren = childrenMapper.selectAll();
@@ -44,11 +47,17 @@ public class ChildrenService {
         return true;
     }
 
+    /**
+     * 登録する
+     */
     public void register(Child newChild) {
         var childrenEntity = new ChildrenEntity(null, newChild.getName(), newChild.getBirthday());
         childrenMapper.insert(childrenEntity);
     }
 
+    /**
+     * 1件取得する
+     */
     public Child get(Long childId) {
         ChildrenEntity childrenEntity = childrenMapper.findById(childId);
         if (Objects.isNull(childrenEntity)) {
@@ -60,6 +69,9 @@ public class ChildrenService {
                 childrenEntity.getBirthday());
     }
 
+    /**
+     * 編集する
+     */
     public void edit(Child newChild) {
         var childrenEntity = new ChildrenEntity(newChild.getChildId(), newChild.getName(), newChild.getBirthday());
         childrenMapper.update(childrenEntity);
@@ -79,6 +91,9 @@ public class ChildrenService {
         return true;
     }
 
+    /**
+     * 削除する
+     */
     public void remove(Long childId) {
         childrenMapper.delete(childId);
     }
