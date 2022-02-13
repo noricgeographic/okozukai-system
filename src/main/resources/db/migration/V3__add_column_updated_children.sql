@@ -1,0 +1,1 @@
+ALTER TABLE `children` ADD `version` int unsigned NOT NULL DEFAULT 0;
