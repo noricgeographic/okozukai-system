@@ -5,7 +5,11 @@
     <title>子どもマスタ｜子どものお小遣い帳アプリ</title>
 </head>
 <body>
-    <header></header>
+    <header>
+        <div>
+            ログイン時刻:<span th:text="${session.SESSION_LOGIN_DATETIME}"></span>
+        </div>
+    </header>
     <main>
         <h1>登録する子どもを確認</h1>
         <div>登録します。よろしいですか？</div>
