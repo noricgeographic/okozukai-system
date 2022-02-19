@@ -11,4 +11,6 @@ spring:
             enabled: true
         restart:
             enabled: true
-
+    ## セッション管理設定
+    session:
+        store-type:redis

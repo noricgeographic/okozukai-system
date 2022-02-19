@@ -21,6 +21,10 @@ dependencies {
     implementation 'mysql:mysql-connector-java:8.0.27'
     implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.1'
 
+    // セッション管理の設定
+    implementation "org.springframework.boot:spring-boot-starter-data-redis"
+    implementation "org.springframework.session:spring-session-data-redis"
+
     // Lombokの設定
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
