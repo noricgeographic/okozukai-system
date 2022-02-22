@@ -60,3 +60,10 @@ flyway {
     schemas = ['okozukai']
 }
 
+task dockerRestart {
+    dependsOn(bootJar)
+    doLast {
+        println("dockerコンテナを再起動します。")
+        "docker container restart okozukai-app".execute()
+    }
+}
