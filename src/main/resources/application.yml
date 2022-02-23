@@ -12,5 +12,5 @@ spring:
         restart:
             enabled: true
     ## セッション管理設定
-    session:
-        store-type:redis
+    #session:
+        #store-type:redis
