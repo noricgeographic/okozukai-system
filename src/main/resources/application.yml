@@ -3,7 +3,7 @@ spring:
     dataSource:
         url: jdbc:mysql://localhost:3306/okozukai
         username: okozukaiadmin
-        password: lknuve7gAre
+        password: lknuve7gAre%
         driver-class-name: com.mysql.cj.jdbc.Driver
     ## ホットデプロイ設定
     devtools:
