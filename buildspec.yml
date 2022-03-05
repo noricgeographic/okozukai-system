@@ -4,17 +4,10 @@ phases:
   install:
     runtime-versions:
       java: corretto11
-  pre_build:
-    commands:
-      - echo Nothing to do in the pre_build phase...
-      - echo CODEBUILD_SRC_DIR=$CODEBUILD_SRC_DIR
   build:
     commands:
       - echo Build started on `date`
       - ./gradlew bootJar
-  post_build:
-    commands:
-      - echo Build completed on `date`
 artifacts:
   files:
     - build/libs/okozukai-system-0.0.1-SNAPSHOT.jar
