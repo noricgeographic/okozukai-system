@@ -7,10 +7,11 @@ phases:
   pre_build:
     commands:
       - echo Nothing to do in the pre_build phase...
+      - echo CODEBUILD_SRC_DIR=$CODEBUILD_SRC_DIR
   build:
     commands:
       - echo Build started on `date`
-      - gradlew build
+      - ./gradlew build
   post_build:
     commands:
       - echo Build completed on `date`
